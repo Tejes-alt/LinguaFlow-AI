@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-slate-50 text-slate-800 transition-colors duration-300 dark:bg-ink dark:text-slate-100;
+}
+
+::selection {
+  @apply bg-brand-400/40;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply rounded-full bg-brand-400/50;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-brand-500/70;
+}
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(99, 102, 241, 0.5) transparent;
+}
+
+/* Reusable glassmorphism surface */
+.glass {
+  @apply border border-white/20 bg-white/60 backdrop-blur-xl dark:border-white/10 dark:bg-white/5;
+}
+
+.text-gradient {
+  @apply bg-brand-gradient bg-clip-text text-transparent;
+}
+
+/* Skeleton loading shimmer */
+.skeleton {
+  @apply relative overflow-hidden bg-slate-200/70 dark:bg-slate-800/70;
+}
+.skeleton::after {
+  content: '';
+  @apply absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/60 to-transparent dark:via-white/10;
+  animation: shimmer 1.6s infinite;
+}
+@keyframes shimmer {
+  100% {
+    transform: translateX(200%);
+  }
+}
+
+.focus-ring {
+  @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-ink;
+}
+
+/* Respect the OS-level reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
