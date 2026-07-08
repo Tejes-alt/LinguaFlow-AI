@@ -132,7 +132,7 @@ You can run `npm audit fix --force` if you'd like the latest majors, but be awar
 - Component and end-to-end test coverage (none is included in this build)
 
 ## Author
-Built by **[Your Name]** — feel free to fork, customize, and make it your own.
+Built by **Tejes** — feel free to fork, customize, and make it your own.
 
 ## License
 MIT — see [LICENSE](./LICENSE).
